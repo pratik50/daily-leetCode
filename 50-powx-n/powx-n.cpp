@@ -1,25 +1,23 @@
 class Solution {
 public:
-    double myPow(double x, int n) {
 
-        long binaryNm = n;
-        double ans = 1;
+    double myPow(double x, long n) {
         
-        if(n < 0){
-            x = 1/x;
-            binaryNm = -binaryNm;
+        if (n == 0) return 1.0;
+    
+        // Handle negative exponent
+        if (n < 0) {
+            return 1.0 / myPow(x, -n);
         }
 
-        while(binaryNm > 0 ){
+        if(x == 0)  return 0.0;
+        if(x == 1)  return 1.0;
 
-            if(binaryNm % 2 == 1){
-                ans = ans*x;
-            }
-
-            x = x*x;
-            binaryNm = binaryNm/2;
+        if(n % 2 == 0){
+            return myPow(x * x, n / 2);
         }
-        return ans;
-            
+        
+        return x * myPow(x, n - 1);
+        
     }
 };
