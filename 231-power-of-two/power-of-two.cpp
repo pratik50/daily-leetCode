@@ -2,6 +2,7 @@ class Solution {
 public:
     bool isPowerOfTwo(int n) {
         
+        //TC = O(log n) and SC = O(1)
         if(n == 1)  return true;
         if(n == 0)  return false;
 
