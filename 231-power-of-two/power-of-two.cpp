@@ -1,18 +1,11 @@
 class Solution {
 public:
-    bool isPowerOfTwo(int n) {
-        
-        //TC = O(log n) and SC = O(1)
-        if(n == 1)  return true;
-        if(n == 0)  return false;
+    bool isPowerOfTwo(long long n) {
 
-        long long i=2;
-        while(i<=n){
-            if(i == n)
-                return true;
-
-            i *= 2; 
-        }
-        return false;
+        // TC = O(1) and SC = O(1)
+        // Bit masking/Binary expo.
+        if(n == 1) return true;
+        if(n == 0) return false;
+        return ((n&(n-1)) == 0) ? true : false;
     }
 };
